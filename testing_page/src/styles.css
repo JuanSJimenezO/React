@@ -1,0 +1,290 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden; /* Evitar barras de desplazamiento horizontales */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header, footer {
+    background-color: #004d99;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Mouse Light Effect */
+.light {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+    pointer-events: none; /* Permite hacer clic en elementos debajo */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen; /* Mezcla los colores con el fondo */
+    z-index: 9999;
+}
+
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, botones a la derecha */
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    position: sticky; /* Mantiene el header fijo al hacer scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    color: #66c2ff; /* Cambiar el color al hacer hover */
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #0066cc;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:hover {
+    background-color: #0055aa;
+    transform: translateY(-3px); /* Eleva el botón al hacer hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Home Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(120deg, #004d99, #0066cc);
+    color: white;
+    animation: fadeIn 1.5s ease; /* Animación de entrada */
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: slideInFromLeft 1s ease; /* Título con efecto deslizante */
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    animation: slideInFromRight 1s ease; /* Texto con efecto deslizante */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.primary {
+    background-color: #ff4081;
+    color: white;
+}
+
+.cta-button.primary:hover {
+    background-color: #e91e63;
+    transform: scale(1.1); /* Efecto de zoom */
+}
+
+.cta-button.secondary {
+    background-color: white;
+    color: #ff4081;
+    border: 2px solid #ff4081;
+}
+
+.cta-button.secondary:hover {
+    background-color: #ff4081;
+    color: white;
+    transform: scale(1.1); /* Efecto de zoom */
+}
+
+/* AboutMe Page */
+.about-page {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    animation: fadeIn 1.5s ease; /* Animación de entrada */
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1); /* Efecto de zoom en la imagen */
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #004d99;
+    color: white;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+/* Drag animation */
+.draggable {
+    width: 120px;
+    height: 120px;
+    background-color: #ff69b4; /* Color rosa */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: grab;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+.draggable:active {
+    cursor: grabbing;
+    transform: scale(1.1); /* Zoom al arrastrar */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.drop-zone {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #ff4081;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    color: #ff4081;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.drop-zone.over {
+    background-color: rgba(255, 64, 129, 0.2); /* Resalta la zona cuando se arrastra sobre ella */
+}
+
+
+/* Animaciones para elementos en AboutMe */
+.about-page h1 {
+    animation: slideInFromTop 1s ease forwards;
+}
+
+.about-page img {
+    animation: fadeInScale 1.5s ease forwards;
+}
+
+.about-page p {
+    animation: slideInFromBottom 1.5s ease forwards;
+}
+
+/* Keyframes */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
